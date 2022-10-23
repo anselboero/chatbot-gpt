@@ -3,7 +3,7 @@ name: Sync S3 Bucket
 on:
   push:
     paths:
-      - 'dags/*.py'
+      - 'src/*'
 
 jobs:
   deploy:
