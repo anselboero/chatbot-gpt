@@ -1,4 +1,4 @@
-name: Sync Dag
+name: Sync S3 Bucket
 
 on:
   push:
