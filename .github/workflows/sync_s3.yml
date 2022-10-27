@@ -19,12 +19,12 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd my-app
+        cd ecommerce-small-catalog
         npm install
 
     - name: Build
       run: |
-        cd my-app
+        cd ecommerce-small-catalog
         pwd
         npm run build:prod
 
