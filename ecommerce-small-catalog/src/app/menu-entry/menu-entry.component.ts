@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MenuEntryComponent implements OnInit {
   @Input() 
   entryName ?: string;
-  isSelected ?:boolean;
+  isSelected :boolean = false;
   dropDownMenu : string[] = [];
   constructor() { 
   }
