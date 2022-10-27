@@ -26,7 +26,7 @@ jobs:
       run: |
         cd ecommerce-small-catalog
         pwd
-        npm run build:prod
+        npm run build
 
     - name: Sync S3 Bucket
       if: success()
