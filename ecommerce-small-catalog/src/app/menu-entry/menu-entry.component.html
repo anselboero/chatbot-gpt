@@ -1,4 +1,4 @@
-<p (click)="isSelected = !isSelected">{{entryName}} / {{dropDownMenu}}</p>
+<p (click)="isSelected = !isSelected">{{entryName}}</p>
 
 <li *ngIf="isSelected">
     <ul *ngFor="let row of dropDownMenu">{{row}}</ul>
