@@ -1,6 +1,8 @@
 <h1 class = 'titolo'>E-commerce A.C. Manza</h1>
+<div>
 <app-menu-bar  (updatePage2)="setCurrentPage($event)" class = 'menu-bar-class'></app-menu-bar>
-<br>
+</div>
+<br><br><br>
 <div *ngIf="selectedPage == 'Shop'" class = "pagina">SHOP</div>
 <div *ngIf="selectedPage == 'home'" class = "pagina">home</div>
 <div *ngIf="selectedPage == 'Su di noi'" class = "pagina">SU DI NOI</div>
