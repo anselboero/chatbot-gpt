@@ -3,3 +3,12 @@ text-align: center;
 color: red;
 font-weight: bold;
 }
+.menu-bar-class {
+    padding : 0 25%;
+    position: absolute;
+    width: 50%;
+}
+.pagina{
+    font: size 40px;
+    color : blue
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-menu-bar',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-bar.component.css']
 })
 export class MenuBarComponent implements OnInit {
-  entryList = ['prova', 'test', 'esempio'];
+  entryList = ['Shop', 'Su di noi', 'Carrello'];
+  selectedPage2 : string = 'a';
   constructor() { }
-
+  @Output() updatePage2  = new EventEmitter<string>;
   ngOnInit(): void {
   }
-
+  updatePageInHome(value : string) {
+    this.updatePage2.emit(value);
+  }
 }

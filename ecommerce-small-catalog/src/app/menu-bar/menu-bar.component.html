@@ -1,3 +1,3 @@
 <span *ngFor="let entry of entryList" style="vertical-align: top;text-align: center">
-    <app-menu-entry style="display: inline-block;width:33%" [entryName]="entry"></app-menu-entry>
+    <app-menu-entry  (updatePage)="updatePageInHome($event)" class= "menu-entry-class" [entryName]="entry"></app-menu-entry>
 </span>

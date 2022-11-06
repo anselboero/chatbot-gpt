@@ -1,8 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { AppComponent } from '../app.component';
 @Component({
   selector: 'app-menu-entry',
   templateUrl: './menu-entry.component.html',
-  styleUrls: ['./menu-entry.component.css']
+  styleUrls: ['./menu-entry.component.css'],
+  providers: [AppComponent]
 })
 export class MenuEntryComponent implements OnInit {
   @Input() 
@@ -11,7 +13,7 @@ export class MenuEntryComponent implements OnInit {
   dropDownMenu : string[] = [];
   constructor() { 
   }
-
+  @Output() updatePage  = new EventEmitter<string>;
   ngOnInit(): void {
     for(let i = 0; i<4; i++) {
       console.log('test ' + i + this.entryName);
@@ -21,6 +23,8 @@ export class MenuEntryComponent implements OnInit {
   }
   selectEntry() : void {
     console.log('test');
-    this.isSelected = true;
+    this.isSelected = !this.isSelected;
+    let currPage = this.entryName ? this.entryName : 'error';
+    this.updatePage.emit( currPage);
   }
 }
