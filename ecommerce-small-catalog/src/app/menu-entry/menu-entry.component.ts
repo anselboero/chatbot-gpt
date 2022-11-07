@@ -7,24 +7,24 @@ import { AppComponent } from '../app.component';
   providers: [AppComponent]
 })
 export class MenuEntryComponent implements OnInit {
-  @Input() 
-  entryName ?: string;
-  isSelected :boolean = false;
-  dropDownMenu : string[] = [];
-  constructor() { 
+  @Input()
+  entryName?: string;
+  isSelected: boolean = false;
+  dropDownMenu: string[] = [];
+  constructor() {
   }
-  @Output() updatePage  = new EventEmitter<string>;
+  @Output() updatePage = new EventEmitter<string>;
   ngOnInit(): void {
-    for(let i = 0; i<4; i++) {
+    for (let i = 0; i < 4; i++) {
       console.log('test ' + i + this.entryName);
-      if(this.entryName) this.dropDownMenu[i]=this.entryName+i;
+      if (this.entryName) this.dropDownMenu[i] = this.entryName + i;
       console.log(this.dropDownMenu);
     }
   }
-  selectEntry() : void {
+  selectEntry(): void {
     console.log('test');
     this.isSelected = !this.isSelected;
     let currPage = this.entryName ? this.entryName : 'error';
-    this.updatePage.emit( currPage);
+    this.updatePage.emit(currPage);
   }
 }

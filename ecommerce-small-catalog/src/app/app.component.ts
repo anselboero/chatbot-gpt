@@ -6,9 +6,9 @@ import { Component, Output } from '@angular/core';
 })
 export class AppComponent {
   title = 'ecommerce-small-catalog';
-  selectedPage :String = 'home';
-  setCurrentPage(value : string) {
-  this.selectedPage = value
+  selectedPage: String = 'home';
+  setCurrentPage(value: string) {
+    this.selectedPage = value
     // = value.page};
   }
 }
