@@ -3,9 +3,9 @@
 <app-menu-bar  (updatePage2)="setCurrentPage($event)" class = 'menu-bar-class'></app-menu-bar>
 </div>
 <br><br><br>
-<div *ngIf="selectedPage == 'Shop'" class = "pagina">SHOP</div>
-<div *ngIf="selectedPage == 'home'" class = "pagina">home</div>
-<div *ngIf="selectedPage == 'Su di noi'" class = "pagina">SU DI NOI</div>
-<div *ngIf="selectedPage == 'Carrello'" class = "pagina">CARRELLO</div>
+<div *ngIf="selectedPage == 'Shop'" class = "pagina"><app-shop-page></app-shop-page></div>
+<div *ngIf="selectedPage == 'home'" class = "pagina"><app-home-page></app-home-page></div>
+<div *ngIf="selectedPage == 'Su di noi'" class = "pagina"><app-about-us-page></app-about-us-page></div>
+<div *ngIf="selectedPage == 'Carrello'" class = "pagina"><app-cart-page></app-cart-page></div>
 <br><br><br>
-<div>FOOTER</div>
+<div>FOOTERsnfg</div>
