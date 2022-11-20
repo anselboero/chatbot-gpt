@@ -1,0 +1,7 @@
+<div class="container" style="text-align: center; padding-top:10px;" *ngIf="product">
+    <h5 > {{product.name}} </h5>
+    <img [src] = product.imageUrl/>
+    <p> {{product.description }} </p>
+    <p style="color: grey"> {{ product.price | currency }}</p>
+    <button type="button" class="btn btn-primary" (click)="addToCart(product)">Add To Cart</button>
+</div>
