@@ -6,15 +6,14 @@ import { Component, OnInit, HostBinding } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit { 
-  imagesRootPath = "../../assets/background/";
-  images = [
-    this.imagesRootPath + 'img_1.jpg',
-    this.imagesRootPath + 'img_2.jpg',
-    this.imagesRootPath + 'img_3.jpg',
-    this.imagesRootPath + 'img_4.jpg',
-    this.imagesRootPath + 'video_1.gif'
+  videosRootPath = "../../assets/background/";
+  videos = [
+    this.videosRootPath + 'video_1.mp4',
+    this.videosRootPath + 'video_2.mp4',
+    this.videosRootPath + 'video_3.mp4',
+    this.videosRootPath + 'video_4.mp4'
   ];
-  currentImage!: string;
+  currentVideo!: string;
   changeBackgroundCounter = 0;
 
   
@@ -22,10 +21,10 @@ export class HomePageComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.currentImage = this.images[0];
+    this.currentVideo = this.videos[0];
     setInterval(() => {
-      this.changeBackgroundCounter=(this.changeBackgroundCounter+1)%this.images.length;
-      this.currentImage = this.images[this.changeBackgroundCounter];
+      this.changeBackgroundCounter=(this.changeBackgroundCounter+1)%this.videos.length;
+      this.currentVideo = this.videos[this.changeBackgroundCounter];
     },7000
     );
   }
