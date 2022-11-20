@@ -19,12 +19,12 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd ecommerce-small-catalog
+        cd e-commerce
         npm install
 
     - name: Build
       run: |
-        cd ecommerce-small-catalog
+        cd e-commerce
         pwd
         npm run build
 
@@ -36,5 +36,5 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: 'us-east-1'
-        SOURCE_DIR: 'ecommerce-small-catalog/dist/ecommerce-small-catalog'
+        SOURCE_DIR: 'e-commerce/dist/e-commerce'
         
