@@ -4,10 +4,6 @@ body, html, app-root{
     height: 100%;
 }
 
-.navbar {
-    z-index: 4;
-}
-
 .bg-img1 {
     background-image: url("/../../assets/background/img_1.jpg");
     display: block;
