@@ -1,9 +1,26 @@
 <div class="container">
     <h2>List of Products</h2>
 
+    <select  [(ngModel)]="filterType">
+      <option value="All">Show All</option>
+      <option value="Advanced Technology">Advanced Technology</option>
+      <option value="Clothes">Clothes</option>
+      <option value="Phones">Phones</option>
+    </select>
+
+    <select (change)= "orderProducts(this.orderBy)"  [(ngModel)]="orderBy">
+      <option value="plh">Price - Low to High</option>
+      <option value="phl">Price - High to Low</option>
+      <option value="az">A-Z</option>
+      <option value="za">Z-A</option>
+    </select>
+
+
+
     <div class="row row-cols-1 row-cols-md-4 g-4">
-        <div class="col" *ngFor="let product of products">
-          <div class="card h-100">
+      <ng-container *ngFor="let product of products">
+        <div class="col" *ngIf="product.type == filterType || filterType == 'All'" >
+          <div class="card h-100" >
             <img [src]= product.imageUrl class="card-img-top"/>
             <div class="card-body">
               <h5 class="card-title">
@@ -20,7 +37,7 @@
             </div>
           </div>
         </div>
-        
+      </ng-container>    
     </div>
       
 </div>
