@@ -6,10 +6,13 @@ import { Product } from './products';
 })
 export class CartService {
   items: Product[] = [];
-  constructor() { }
+  constructor() {
+    this.items = JSON.parse(localStorage.getItem('items') || '[]' );
+   }
 
   addToCart(product: Product) {
     this.items.push(product);
+    this.syncItems()
   }
 
   getItems() {
@@ -19,5 +22,10 @@ export class CartService {
   clearCart() {
     this.items= [];
     return this.items;
+    this.syncItems()
+  }
+
+  syncItems() {
+    localStorage.setItem('items', JSON.stringify(this.items));
   }
 }
