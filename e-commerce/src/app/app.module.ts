@@ -9,8 +9,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartComponent } from './cart/cart.component';
 import { GoogleMapsModule } from '@angular/google-maps';
-import { GoogleMapsDemoComponent } from './google-maps-demo/google-maps-demo.component';
 import { FormsModule } from '@angular/forms';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { GoogleMapsWrapperComponent } from './google-maps-wrapper/google-maps-wrapper.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     HomePageComponent,
     ProductDetailsComponent,
     CartComponent,
-    GoogleMapsDemoComponent
+    AboutUsComponent,
+    GoogleMapsWrapperComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,7 @@ import { FormsModule } from '@angular/forms';
       { path: 'products', component: ProductListComponent},
       { path: 'products/:productId', component: ProductDetailsComponent},
       { path: 'cart', component: CartComponent},
+      { path: 'about-us', component: AboutUsComponent},
     ],
     ),
     GoogleMapsModule

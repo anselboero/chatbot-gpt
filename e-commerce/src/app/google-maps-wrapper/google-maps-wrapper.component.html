@@ -1,0 +1,17 @@
+<google-map 
+  height="400px"
+  width="750px"
+  [center]="location"
+  [zoom]="zoom">
+  <map-marker 
+    #marker = "mapMarker"
+    [position]="markerPosition"
+    [options]="markerOptions"
+    (mapClick) = "openInfoWindow(marker)"
+    >
+  </map-marker>
+  <map-info-window>
+    <h5>E-Commerce</h5>
+    <p>You can find us Here: Palazzo Campana, Torino</p>
+  </map-info-window>
+</google-map>
