@@ -1,0 +1,43 @@
+
+
+.home-banner {
+    height:calc(100vh - 56px);
+    width:100%;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-image: url('../assets/images/home/homeBannerDesktop.jpg');
+}
+
+.home-banner-text {
+    position:relative;
+    padding-top: 170px;
+    color: white;
+}
+
+.home-banner-text span {
+    font-size: 18px;
+}
+
+.home-banner-text h2 {
+    font-size: 60px;
+}
+
+.home-banner-text .btn-outline-light {
+    background-color: transparent;
+    border-color: #ccc;
+}
+
+@media screen and (max-width: 425px) {
+    .home-banner {
+        background-image: url('../assets/images/home/homeBannerMobile.jpg');
+    }
+};
+
+
+
+
+    
+
+

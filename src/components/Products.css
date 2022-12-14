@@ -1,0 +1,17 @@
+.sidenav {
+    height: 100%;
+    width: 160px;
+    float: left;
+    color: white;
+    margin: 10px 0 0 5px;
+
+}
+
+.sidenav .container {
+    border: 2px solid white;
+    border-radius: 15px;
+}
+
+.sidenav .container .form-container {
+    margin: 10px;
+}
