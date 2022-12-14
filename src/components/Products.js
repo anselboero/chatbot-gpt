@@ -4,7 +4,7 @@ import React from 'react';
 
 function Sidenav(props) {
     return (
-        <div className="sidenav">
+        <div className="sidenav-filter">
             <div className="container bg-dark">
                 <div className="form-container">
                     <span>Price:</span>
