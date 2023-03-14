@@ -1,5 +1,16 @@
 import { useState } from 'react';
 
+function MessageHistory(props) {
+  const listMessages = props.messages.map(msg => <li>{msg}</li>);
+  return (
+    <>
+      <ul>
+        {listMessages}
+      </ul>
+    </>
+  )
+}
+
 function ChatBot() {
   // Declare a new state variable, which we'll call "count"
   const [isOpen, setIsOpen] = useState(0);
@@ -11,11 +22,12 @@ function ChatBot() {
     setUpdate(event.target.value);
   };
 
-  const handleClick = () => {
+  const handleSubmit = (event) => {
     // 👇 "message" stores input field value
     const new_messages = [...messages, update];
     setMessages(new_messages);
     setUpdate("");
+    event.preventDefault();
   };
 
 
@@ -51,15 +63,13 @@ function ChatBot() {
       <div
         style={chatStyle}>
         <h1>Hello Chat</h1>
-        <p id="sendMessage">{
-          
-        }</p>
-        <input id="textMessage" type="text" value={update}
-          onChange={handleChange}
-        ></input>
-        <button
-          onClick={handleClick}
-        >Send Msg</button>
+        <MessageHistory messages={messages} />
+        <form onSubmit={handleSubmit}>
+          <input id="textMessage" type="text" value={update}
+            onChange={handleChange}
+          ></input>
+          <input type="submit" value="send" />
+        </form>
       </div>
      
     </>
