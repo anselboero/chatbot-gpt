@@ -1,13 +1,18 @@
 import { useState } from 'react';
-
+//AUTHOR PAOLO 
 function MessageHistory(props) {
   const listMessages = props.messages.map(msg => <li>{msg}</li>);
+  const chatBoxStyle = {
+    height: '350px',
+    overflowY: 'scroll'
+  }
+
   return (
-    <>
+    <div style={chatBoxStyle}>
       <ul>
         {listMessages}
       </ul>
-    </>
+    </div>
   )
 }
 
