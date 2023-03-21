@@ -65,7 +65,7 @@ function ChatBot() {
       mode:'no-cors',
       body: reqBody,
       headers: {
-        'Content-Type': 'text/json',
+        'Content-Type': 'application/json',
       }
     })
        .then((response) => response.json())
