@@ -48,11 +48,11 @@ function ChatBot() {
   };
 
   const chatStyle = {
-    height: '340px',
+    height: '700px',
     width: '340px',
     position: 'fixed',
     zIndex: '9998',
-    top: '75%',
+    top: '40%',
     left: '75%',
     display: isOpen? 'block': 'none',
     backgroundColor: 'white'
