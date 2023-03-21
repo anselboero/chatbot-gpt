@@ -1,15 +1,27 @@
 import { useState } from 'react';
 //AUTHOR PAOLO 
 function MessageHistory(props) {
-  const listMessages = props.messages.map(msg => <li>{msg}</li>);
+  const chatMsgStyle = {
+    'user' : {
+      'textAlign': 'right'
+    },
+    'assistant' : {
+      'textAlign': 'left'
+    },
+    'system' :{
+      'display': 'none'
+    }
+  }
+  const listMessages = props.messages.map(msg => <li style={chatMsgStyle[msg.role]}>{msg.content}</li>);
   const chatBoxStyle = {
     height: '350px',
     overflowY: 'scroll'
   }
 
+
   return (
     <div style={chatBoxStyle}>
-      <ul>
+      <ul >
         {listMessages}
       </ul>
     </div>
@@ -20,7 +32,16 @@ function ChatBot() {
   // Declare a new state variable, which we'll call "count"
   const [isOpen, setIsOpen] = useState(0);
   // messages is the list of messages
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    {
+      'role' : 'system',
+      'content' : 'Sei un operatore bancario che deve ricevere informazioni sugli strumenti bancari del cliente'
+    },
+    {
+      'role' : 'assistant',
+      'content' : 'Ciao, qual è il cvv della tua carta di credito?'
+    }     
+    ]);
   const [update, setUpdate] = useState("");
 
   const handleChange = (event) => {
@@ -28,11 +49,33 @@ function ChatBot() {
   };
 
   const handleSubmit = (event) => {
+    event.preventDefault();
     // 👇 "message" stores input field value
-    const new_messages = [...messages, update];
+    const requestMsg = {
+      'role' : 'user',
+      'content' : update
+    }
+    const new_messages = [...messages, requestMsg];
+    const reqBody = JSON.stringify({'messages' : new_messages});
+    //Update messages
     setMessages(new_messages);
     setUpdate("");
-    event.preventDefault();
+    fetch('https://chatbot-gpt-ovyckbu6ya-oa.a.run.app', {
+      method: 'POST',
+      mode:'no-cors',
+      body: reqBody,
+      headers: {
+        'Content-Type': 'text/json',
+      }
+    })
+       .then((response) => response.json())
+       .then((data) => {
+          console.log(data);
+          // Handle data
+       })
+       .catch((err) => {
+          console.log(err.message);
+       });
   };
 
 
