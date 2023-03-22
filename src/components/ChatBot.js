@@ -1,6 +1,11 @@
 import { useState } from 'react';
+import "./ChatBot.css";
 //AUTHOR PAOLO 
+
 function MessageHistory(props) {
+  const hideDots = {
+    'display': props.isWaiting ? 'block' : 'none'
+  }
   const chatMsgStyle = {
     'user' : {    
       'textAlign': 'right',
@@ -35,13 +40,15 @@ function MessageHistory(props) {
       <ul >
         {listMessages}
       </ul>
+      <div style= {hideDots} className ='dot-flashing' ></div>
     </div>
   )
-}
+} 
 
 function ChatBot() {
   // Declare a new state variable, which we'll call "count"
   const [isOpen, setIsOpen] = useState(0);
+  const [isWaiting, setIsWaiting] = useState(false);
   // messages is the list of messages
   const [messages, setMessages] = useState([
     {
@@ -71,6 +78,7 @@ function ChatBot() {
     //Update messages
     setMessages(new_messages);
     setUpdate("");
+    setIsWaiting(true);
     fetch('https://chatbot-gpt-ovyckbu6ya-oa.a.run.app', {
       method: 'POST',
       body: reqBody,
@@ -82,6 +90,7 @@ function ChatBot() {
        .then((data) => {
           const new_messages_with_bot_answer = [...new_messages, data];
           setMessages(new_messages_with_bot_answer);
+          setIsWaiting(false);
           // Handle data
        })
        .catch((err) => {
@@ -117,6 +126,9 @@ function ChatBot() {
     'fontSize': 'xLarge',
     'fontWeight': 'bold'
   }
+    const btnWaitingStyle = {
+    'pointerEvents': isWaiting ? 'none' : 'auto'
+  }
   
   return (
     <>
@@ -128,12 +140,12 @@ function ChatBot() {
       <div
         style={chatStyle}>
         <h1 style = {chatHeaderStyle}>HELPDESK</h1>
-        <MessageHistory messages={messages} />
+        <MessageHistory messages={messages} isWaiting = {isWaiting} />
         <form onSubmit={handleSubmit}>
           <input id="textMessage" type="text" value={update}
             onChange={handleChange}
           ></input>
-          <input type="submit" value="Send" />
+          <input style={btnWaitingStyle} type="submit" value="Send" />
         </form>
       </div>
      
