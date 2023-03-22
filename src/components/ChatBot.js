@@ -2,11 +2,22 @@ import { useState } from 'react';
 //AUTHOR PAOLO 
 function MessageHistory(props) {
   const chatMsgStyle = {
-    'user' : {
-      'textAlign': 'right'
+    'user' : {    
+      'textAlign': 'right',
+      'display': 'block',
+      'background': 'lightsteelblue',
+      'padding': '5px',
+      'borderColor': 'blue',
+      'borderRadius': '7px'
     },
     'assistant' : {
-      'textAlign': 'left'
+      'textAlign': 'left',
+      'padding': '5px',
+      'background': 'yellowgreen',
+      'display': 'block',
+      'margin': '5px',
+      'borderRadius': '7px',
+      'fontStyle': 'italic'
     },
     'system' :{
       'display': 'none'
@@ -98,7 +109,13 @@ function ChatBot() {
     top: '40%',
     left: '75%',
     display: isOpen? 'block': 'none',
-    backgroundColor: 'white'
+    backgroundColor: 'lightyellow'
+  }
+  const chatHeaderStyle = {
+    'textAlign': 'center',
+    'background': 'salmon',
+    'fontSize': 'xLarge',
+    'fontWeight': 'bold'
   }
   
   return (
@@ -110,13 +127,13 @@ function ChatBot() {
       </div>
       <div
         style={chatStyle}>
-        <h1>Hello Chat</h1>
+        <h1 style = {chatHeaderStyle}>HELPDESK</h1>
         <MessageHistory messages={messages} />
         <form onSubmit={handleSubmit}>
           <input id="textMessage" type="text" value={update}
             onChange={handleChange}
           ></input>
-          <input type="submit" value="send" />
+          <input type="submit" value="Send" />
         </form>
       </div>
      
