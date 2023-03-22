@@ -68,6 +68,7 @@ function ChatBot() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if(isWaiting) return;
     // 👇 "message" stores input field value
     const requestMsg = {
       'role' : 'user',
