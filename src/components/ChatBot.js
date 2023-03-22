@@ -73,7 +73,6 @@ function ChatBot() {
     setUpdate("");
     fetch('https://chatbot-gpt-ovyckbu6ya-oa.a.run.app', {
       method: 'POST',
-      mode:'no-cors',
       body: reqBody,
       headers: {
         'Content-Type': 'application/json',
@@ -81,7 +80,8 @@ function ChatBot() {
     })
        .then((response) => response.json())
        .then((data) => {
-          console.log(data);
+          const new_messages_with_bot_answer = [...new_messages, data];
+          setMessages(new_messages_with_bot_answer);
           // Handle data
        })
        .catch((err) => {
